@@ -22,7 +22,7 @@ class SklNMF:
 		"""
 		self.W = None
 		self.H = None
-		model = decomposition.NMF(init=self.init_strategy, n_components=k, max_iter=self.max_iters, random_state = self.random_seed)
+		model = decomposition.NMF(init=self.init_strategy, solver="mu", beta_loss=1, n_components=k, max_iter=self.max_iters, random_state = self.random_seed)
 		self.W = model.fit_transform(X)
 		self.H = model.components_			
 		
